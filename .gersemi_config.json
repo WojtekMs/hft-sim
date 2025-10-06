@@ -6,5 +6,5 @@
   "line_length": 120,
   "list_expansion": "favour-expansion",
   "unsafe": false,
-  "warn_about_unknown_commands": true
+  "warn_about_unknown_commands": false
 }
