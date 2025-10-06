@@ -7,20 +7,18 @@ using namespace std::chrono_literals;
 
 TEST_CASE("Orders can be added to the OrderBook", "[OrderBook]") {
   auto order_book = OrderBook();
-  const auto bid1 = Order{
-      .type_ = OrderType::BID,
-      .price_ = 100,
-      .quantity_ = 10,
-      .timestamp_ = std::chrono::time_point<std::chrono::steady_clock,
-                                            std::chrono::microseconds>{100us},
-      .asset_id_ = "TEST-ASSET"};
-  const auto ask1 = Order{
-      .type_ = OrderType::ASK,
-      .price_ = 110,
-      .quantity_ = 10,
-      .timestamp_ = std::chrono::time_point<std::chrono::steady_clock,
-                                            std::chrono::microseconds>{100us},
-      .asset_id_ = "TEST-ASSET"};
+  const auto bid1 =
+      Order{.type_ = OrderType::BID,
+            .price_ = 100,
+            .quantity_ = 10,
+            .timestamp_ = std::chrono::time_point<std::chrono::steady_clock, std::chrono::microseconds>{100us},
+            .asset_id_ = "TEST-ASSET"};
+  const auto ask1 =
+      Order{.type_ = OrderType::ASK,
+            .price_ = 110,
+            .quantity_ = 10,
+            .timestamp_ = std::chrono::time_point<std::chrono::steady_clock, std::chrono::microseconds>{100us},
+            .asset_id_ = "TEST-ASSET"};
   SECTION("Bid can be added") {
     const auto expected_asks = std::vector<Order>{};
     const auto expected_bids = std::vector<Order>{bid1};

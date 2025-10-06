@@ -13,8 +13,7 @@ struct Order {
   OrderType type_{};
   int price_{};
   int quantity_{};
-  std::chrono::time_point<std::chrono::steady_clock, std::chrono::microseconds>
-      timestamp_{};
+  std::chrono::time_point<std::chrono::steady_clock, std::chrono::microseconds> timestamp_{};
   std::string asset_id_{};
 
   friend bool operator==(const Order &, const Order &) = default;

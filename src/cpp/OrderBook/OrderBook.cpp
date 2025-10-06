@@ -4,13 +4,12 @@
 namespace HFT {
 namespace {
 void add_order_to_book(std::vector<Order> &orders, Order order) {
-  const auto it =
-      std::ranges::find_if(orders, [&order](const auto &booked_order) {
-        if (order.type_ == OrderType::ASK) {
-          return order.price_ <= booked_order.price_;
-        }
-        return order.price_ >= booked_order.price_;
-      });
+  const auto it = std::ranges::find_if(orders, [&order](const auto &booked_order) {
+    if (order.type_ == OrderType::ASK) {
+      return order.price_ <= booked_order.price_;
+    }
+    return order.price_ >= booked_order.price_;
+  });
   if (it != orders.end()) {
     orders.insert(it, std::move(order));
   } else {
